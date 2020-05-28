@@ -43,7 +43,7 @@ def main(genomes, config):
     ge =[]
     birds = []
 
-    for _,g in genomes:
+    for _, g in genomes:
         net = neat.nn.FeedForwardNetwork.create(g, config)
         nets.append(net)
         birds.append(Bird(230, 350))
@@ -77,21 +77,21 @@ def main(genomes, config):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     bird.jump()
-            pipe_ind = 0
+        pipe_ind = 0
 
-            if len(birds) > 0:
-                if (len(pipes) > 1) and (birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width()):
+        if len(birds) > 0:
+            if (len(pipes) > 1) and (birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width()):
                     pipe_ind = 1
-                else:
-                    run = False
-                    break
-            for x, bird in enumerate(birds):
-                bird.move()
-                ge[x].fitness = ge[x].fitness + 0.1
-                output = nets[x].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom)))
+            else:
+                run = False
+                break
+        for x, bird in enumerate(birds):
+            bird.move()
+            ge[x].fitness = ge[x].fitness + 0.1
+            output = nets[x].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom)))
 
-                if output[0] > 0.5:
-                    bird.jump()
+            if output[0] > 0.5:
+                bird.jump()
 
 
         bird.move()
@@ -141,4 +141,4 @@ if __name__ == "__main__":
     local_dir = os.path.dirname(__file__)
     config_path = os.path.join(local_dir, "config-feed_forward.txt")
     run(config_path)
-    main()
+    main(genomes, config)
