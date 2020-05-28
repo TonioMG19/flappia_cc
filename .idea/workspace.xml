@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13e5b850-c580-411e-9f55-92f595d31663" name="Default Changelist" comment="" />
+    <list default="true" id="13e5b850-c580-411e-9f55-92f595d31663" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/flappy_bird_cc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flappy_bird_cc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/best_score.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bird.py" beforeDir="false" afterPath="$PROJECT_DIR$/bird.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sonic.py" beforeDir="false" afterPath="$PROJECT_DIR$/sonic.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +31,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -62,21 +75,25 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2539" height="389" key="GridCell.Tab.0.bottom" timestamp="1588603032314">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="2470" height="397" key="GridCell.Tab.0.bottom" timestamp="1590667569759">
+      <screen x="67" y="27" width="2493" height="1413" />
     </state>
     <state width="2539" height="389" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1588603032314" />
-    <state width="2539" height="389" key="GridCell.Tab.0.center" timestamp="1588603032313">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="2470" height="397" key="GridCell.Tab.0.bottom/67.27.2493.1413@67.27.2493.1413" timestamp="1590667569759" />
+    <state width="2470" height="397" key="GridCell.Tab.0.center" timestamp="1590667569759">
+      <screen x="67" y="27" width="2493" height="1413" />
     </state>
     <state width="2539" height="389" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1588603032313" />
-    <state width="2539" height="389" key="GridCell.Tab.0.left" timestamp="1588603032313">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="2470" height="397" key="GridCell.Tab.0.center/67.27.2493.1413@67.27.2493.1413" timestamp="1590667569759" />
+    <state width="2470" height="397" key="GridCell.Tab.0.left" timestamp="1590667569759">
+      <screen x="67" y="27" width="2493" height="1413" />
     </state>
     <state width="2539" height="389" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1588603032313" />
-    <state width="2539" height="389" key="GridCell.Tab.0.right" timestamp="1588603032314">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="2470" height="397" key="GridCell.Tab.0.left/67.27.2493.1413@67.27.2493.1413" timestamp="1590667569759" />
+    <state width="2470" height="397" key="GridCell.Tab.0.right" timestamp="1590667569759">
+      <screen x="67" y="27" width="2493" height="1413" />
     </state>
     <state width="2539" height="389" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1588603032314" />
+    <state width="2470" height="397" key="GridCell.Tab.0.right/67.27.2493.1413@67.27.2493.1413" timestamp="1590667569759" />
   </component>
 </project>

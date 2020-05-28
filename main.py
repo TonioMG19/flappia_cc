@@ -3,6 +3,7 @@ import random
 import math
 import os
 import time
+import json
 from bird import Bird
 from base import Base
 from pipe import Pipe
@@ -11,9 +12,9 @@ pygame.font.init()
 WIN_WIDTH = 500
 WIN_HEIGHT = 800
 
-fond = pygame.transform.scale2x(pygame.image.load(os.path.join("assets","bg.png")))
+fond = pygame.transform.scale2x(pygame.image.load(os.path.join("assets", "bg.png")))
 
-STAT_FONT = pygame.font.Font("assets/PixelGosub-ZaRz.ttf",20)
+STAT_FONT = pygame.font.Font("assets/PixelGosub-ZaRz.ttf", 20)
 
 def draw_window(win,bird,base,pipes,score,high_score):
     win.blit(fond,(0,0))
@@ -28,9 +29,6 @@ def draw_window(win,bird,base,pipes,score,high_score):
     pygame.display.update()
 
 def main():
-    fichier = open("best_score.txt","r")
-    high_score = fichier.read()
-    print(high_score)
     run = True
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
     clock = pygame.time.Clock()
@@ -38,12 +36,20 @@ def main():
     base = Base(730)
     pipes = [Pipe(600)]
     score = 0
+    with open("best_score.json") as out_file:
+        data = json.load(out_file)
+        high_score = str(data["bestscore"])
+
 
     while (run):
         clock.tick(30)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+                myData = {}
+                myData["bestscore"] = int(high_score)
+                with open("best_score.json", "w") as json_file:
+                    json.dump(myData, json_file)
                 pygame.quit()
                 quit()
             if event.type == pygame.KEYDOWN:
@@ -58,19 +64,14 @@ def main():
         rem = []
 
         if bird.y >= 700 or bird.y < 0:
-            high_score = fichier.read()
-            if score > int(high_score):
-                fichier = open("best_score.txt","w")
-                fichier.write(str(score))
+            if int(score) > int(high_score):
+                high_score = score
             main()
 
         for pipe in pipes:
             if (pipe.collide(bird)):
-                high_score = fichier.read()
-                print(high_score)
-                if score > int(high_score):
-                    fichier = open("best_score.txt","w")
-                    fichier.write(str(score))
+                if int(score) > int(high_score):
+                    high_score = score
                 main()
             if (not (pipe.passed) and (pipe.x < bird.x)):
                 pipe.passed = True
