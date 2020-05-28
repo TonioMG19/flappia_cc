@@ -29,6 +29,14 @@ def draw_window(win,bird,base,pipes,score,high_score):
     base.draw(win)
     pygame.display.update()
 
+def run(config_path):
+    config = neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction, neat.DefaultSpeciesSet, neat.DefaultStagnation, config_path)
+    p = neat.Population(config)
+    p.add_reporter(neat.StdOutReporter(True))
+    stats = neat.StatisticsReporter()
+    p.add_reporter(stats)
+    Winner = p.run(main, 50)
+
 def main(genomes, config):
 
     nets = []
@@ -44,6 +52,7 @@ def main(genomes, config):
 
     run = True
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+    pygame.display.set_caption("Flappia !")
     clock = pygame.time.Clock()
     bird = Bird(230,350)
     base = Base(730)
@@ -68,10 +77,22 @@ def main(genomes, config):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     bird.jump()
+            pipe_ind = 0
 
-        pipe_ind = 0
+            if len(birds) > 0:
+                if (len(pipes) > 1) and (birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width()):
+                    pipe_ind = 1
+                else:
+                    run = False
+                    break
+            for x, bird in enumerate(birds):
+                bird.move()
+                ge[x].fitness = ge[x].fitness + 0.1
+                output = nets[x].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom)))
 
-        if(len(birds) > 0):
+                if output[0] > 0.5:
+                    bird.jump()
+
 
         bird.move()
         add_pipe = False
@@ -115,14 +136,6 @@ def main(genomes, config):
 
         base.move()
         draw_window(win,bird,base,pipes,score,high_score)
-
-def run(config_path):
-    config = neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction, neat.DefaultSpeciesSet, neat.DefaultStagnation, config_path)
-    p = neat.Population(config)
-    p.add_reporter(neat.StdOutReporter(True))
-    stats = neat.StatisticsReporter()
-    p.add_reporter(stats)
-    Winner = p.run(main, 50)
 
 if __name__ == "__main__":
     local_dir = os.path.dirname(__file__)
